@@ -9,7 +9,9 @@
 <body>
     <h1>Página de categorías</h1>
 
+    {{-- importar componente --}}
     <x-button> {{-- dentro los paramentros que queramos pasarle --}}
+        
         Click aquí {{-- Este parametro se pasará como $slot --}}
 
         <x-slot name="extra"> {{-- Este parametro se pasará como $extra --}}
