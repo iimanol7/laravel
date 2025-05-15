@@ -1,3 +1,0 @@
-*mirar flags de comandos para ayudar con el autocompletado*
-php artisan make:controller NombreController
- 
