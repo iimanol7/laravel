@@ -13,11 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Este es el documento que se va a ejecutar con las migraciones
+        // para que se ejecuten los demás seeders hay que llamarlos
+        $this->call([
+            ProductoSeeder::class,
+        ]);
+     
+     
+     
+     
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }

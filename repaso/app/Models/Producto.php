@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 { 
+    use HasFactory;
+    
     // Tabla si el nombre no sigue la convención (nombre en singular, sin la s)
     // protected $table = 'nombreTabla';
 

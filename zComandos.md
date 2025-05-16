@@ -5,10 +5,17 @@ php artisan make:controller NombreController
 php artisan make:migration create_nombrePlural_table
 
 *añadir columnas a una migracion*
-add_nombreColumna_to_nombreTabla_table
+php artisan make:migration add_nombreColumna_to_nombreTabla_table
 
 *eliminar columnas de una migración*
-remove_nombreColumna_from_nombreTabla_table
+php artisan make:migration remove_nombreColumna_from_nombreTabla_table
+
+*comandos migraciones*
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:fresh
+php artisan migrate:refresh
+php artisan migrate:reset
 
 *crear modelo*
 php artisan make:model Nombre
@@ -21,6 +28,10 @@ php artisan make:model Nombre -mcrf
 
 *crear seeder*
 php artisan make:seeder NombreSeeder
+
+*aplicar seeders*
+php artisan migrate:fresh --seed
+php artisan db:seed
 
 *crear factory*
 php artisan make:factory NombreModeloFactory --model=Nombremodelo

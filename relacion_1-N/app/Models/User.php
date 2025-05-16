@@ -4,7 +4,6 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -45,20 +44,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    /////////// creamos la relación //////////
-    /////////// tabla padre //////////////////
-    //escribir 'hasOne' para autocompletado
-    /**
-     * Get the phone associated with the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-
-     //Hacia la tabla hijo (phone)
-    public function phone(): HasOne
-    {
-        return $this->hasOne(Phone::class, 'user_id', 'id'); // 'foreing_key', 'primary_key(local)'
     }
 }
