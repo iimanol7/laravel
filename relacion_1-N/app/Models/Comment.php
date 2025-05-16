@@ -2,27 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Phone extends Model
+class Comment extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['number', 'user_id'];
-
+    protected $fillable = [
+        'content',
+        'post_id',
+    ];
 
     /////////// creamos la relación //////////
     /////////// tabla hijo //////////////////
     //escribir 'belongsTo' para autocompletado
     /**
-     * Get the user that owns the Phone
+     * Get the user that owns the Comment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function post(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id'); // 'foreign_key(local)' , 'primary_key' 
+        return $this->belongsTo(Post::class, 'post_id', 'id'); // 'foreign_key(local)' , 'primary_key'
     }
 }

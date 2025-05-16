@@ -10,7 +10,7 @@ Primera letra mayuscula
 nombreModelo1_nombreModelo2
 
 *claves foraneas*
-nombre de la tabla en singular + _id
+nombre de la tabla PADRE en singular + _id
 nombreModelo_id
 
 *Factories*
