@@ -1,4 +1,5 @@
 *mirar flags de comandos para ayudar con el autocompletado*
+*crear controlador*
 php artisan make:controller NombreController
 
 *crear migraciones*
@@ -35,3 +36,6 @@ php artisan db:seed
 
 *crear factory*
 php artisan make:factory NombreModeloFactory --model=Nombremodelo
+
+*enlace de 'storage/app/public' a 'public/storage'*
+php artisan storage:link
