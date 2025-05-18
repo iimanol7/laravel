@@ -51,6 +51,7 @@
 ### 🕒 **Fechas y tiempos**
 
 - `now()` → Fecha y hora actual  
+- `fake()->year(2000, 2025)` → Hora aleatoria  
 - `fake()->date()` → Fecha en formato `Y-m-d`  
 - `fake()->dateTime()` → Objeto `DateTime` aleatorio  
 - `fake()->dateTimeBetween('-1 year', 'now')` → Fecha aleatoria entre hace un año y ahora  
