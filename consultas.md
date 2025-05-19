@@ -3,10 +3,12 @@
 1. Modelo base
 2. Relaciones (`with`)
 3. Condiciones (`where`, `orWhere`, `whereIn`, etc.)
-4. Agrupamientos (`groupBy`, `having`)
-5. Ordenamientos (`orderBy`)
-6. Límite y paginación (`limit`, `offset`, `paginate`, `take`)
-7. Ejecución (`get`, `first`, `count`, `exists`, etc.)
+4. Seleccion de columnas (`select`)
+5. Agrupamientos (`groupBy`, `having`)
+6. `distinct` 
+7. Ordenamientos (`orderBy`)
+8. Límite y paginación (`limit`, `offset`, `paginate`, `take`)
+9. Ejecución (`get`, `first`, `count`, `exists`, `pluck` etc.)
 
 ## Obtener registros
 
@@ -30,6 +32,9 @@ User::limit(10)->get();
 //relaciones
 User::with('posts')->get(); // eager loading
 Post::with('user')->where('status', 'publicado')->get();
+$alumno->cursos()->attach(2, ['nota' => 8.5]);
+$oficios = Profesor::distinct()->pluck('oficio')->toArray();
+
 
 User::where('active', true)->count();
 
