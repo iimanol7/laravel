@@ -17,3 +17,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+// Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+// Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Curso;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 
@@ -81,6 +82,34 @@ class AlumnosController extends Controller
         $alumno->direccion = $request->direccion;
         $alumno->foto = '';
         $alumno->save();
+
+        return redirect('/alumnos');
+    }
+
+    public function cursos($id){
+        $alumno = Alumno::find($id);
+        $cursos = $alumno->cursos;
+        return view('ver.cursosAlumno', compact('alumno', 'cursos'));
+    }
+
+    public function desmatricular($idAlumno, $idCurso){
+        //desvinculamos la relacion entre el alumno y el curso
+        $alumno = Alumno::find($idAlumno);
+        $alumno->cursos()->detach($idCurso);
+        return redirect('alumnos/'.$idAlumno.'/cursos');
+    }
+
+    public function matricula($id){
+        $alumno = Alumno::find($id);
+        $cursos = Curso::all();
+        $cursosAlumno = $alumno->cursos->pluck('id')->toArray();
+        return view('ver.matricula', compact('alumno', 'cursos', 'cursosAlumno'));
+    }
+    
+    public function matricular($id, Request $request){
+        $alumno = Alumno::find($id);
+
+        $alumno->cursos()->sync($request->cursos);
 
         return redirect('/alumnos');
     }

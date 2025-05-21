@@ -33,6 +33,11 @@ User::limit(10)->get();
 User::with('posts')->get(); // eager loading
 Post::with('user')->where('status', 'publicado')->get();
 $alumno->cursos()->attach(2, ['nota' => 8.5]);
+$alumno->cursos()->attach([1, 2, 3]);
+$post->tags()->sync([1, 2]); //Elimina todos y añade solo los del array
+$user->roles()->detach(); // Elimina todas las relaciones de roles con ese usuario
+$user->roles()->detach([2, 3, 4]); // Elimina las relaciones de los roles con IDs 2, 3 y 4
+
 $oficios = Profesor::distinct()->pluck('oficio')->toArray();
 
 

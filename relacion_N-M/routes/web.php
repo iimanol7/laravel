@@ -27,7 +27,7 @@ Route::get('/prueba', function () {
     // ASIGNAR VARIOS TAGS AL POST
     // $post->tags()->attach([1, 2, 3]);
 
-    // TAMBIEN SE PUEDE UTILIZAR 'SYNC' (reemplaza los anteriores)
+    // TAMBIEN SE PUEDE UTILIZAR 'SYNC' (Elimina todos y añade solo los del array)
     // $post->tags()->sync([1, 2]);
 
     // ELIMINAR TAGS DEL POST

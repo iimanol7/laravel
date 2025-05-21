@@ -35,6 +35,7 @@ $table->string('email')
       ->default('ejemplo@mail.com')
       ->index()
       ->comment('Correo del usuario');
+      
 ->nullable()
 
 ->default(valor)

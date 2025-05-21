@@ -1,16 +1,13 @@
 @extends('layout.layout')
 @section('content')
-
-    <h1>Cursos impartidos</h1>
-    <a href="/cursos/nuevo">Nuevo curso</a>
+    <h1>Cursos de {{ $alumno->nombre }}</h1>
     <table border="1">
         <tr>
             <th>Nombre</th>
             <th>Nivel</th>
             <th>Horas</th>
             <th>Profesor</th>
-            <th>Modificar</th>
-            <th>Alumnos</th>
+            <th></th>
         </tr>
         @foreach ($cursos as $curso)
             <tr>
@@ -18,8 +15,11 @@
                 <td>{{ $curso->nivel }}</td>
                 <td>{{ $curso->horas }}</td>
                 <td>{{ $curso->profesor->nombre }}</td>
-                <td><button><a href="/cursos/{{$curso->id}}/editar">Modificar</a></button></td>
-                <td><button><a href="/cursos/{{$curso->id}}/alumnos">Listado</a></button></td>
+                <td><form action="/alumnos/{{$alumno->id}}/{{$curso->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Eliminar Matricula</button>
+                </form></td>
             </tr> 
         @endforeach
     </table>
